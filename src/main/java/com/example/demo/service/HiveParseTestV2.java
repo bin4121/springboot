@@ -13,10 +13,15 @@ import org.antlr.runtime.tree.Tree;
 import org.apache.hadoop.hive.ql.parse.ASTNode;
 import org.apache.hadoop.hive.ql.parse.ParseDriver;
 import org.apache.hadoop.hive.ql.parse.ParseException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HiveParseTestV2 {
 
-    public static void parseSql(String sql) throws ParseException {
+    public static List<FieldEntity> parseSql(String sql) throws ParseException {
+
+        List<FieldEntity> list = new ArrayList<>();
+
         ParseDriver pd = new ParseDriver();
         // TODO
         // 这里如果sql中有异常的话会报错
@@ -32,23 +37,14 @@ public class HiveParseTestV2 {
         // 2.判断
         if ("TOK_CREATETABLE".equals(operationType)) {
             System.out.println("*** 创建表 ***");
-            ArrayList<FieldEntity> list = createTableJavaBean(ast);
+            list = createTableJavaBean(ast);
             for (FieldEntity fieldEntity : list) {
                 System.out.println(fieldEntity);
             }
 
-            // list转为json
-            JSONArray js = JSONArray.fromObject(list);
-            System.out.println("json\n"+js.toString());
-
-            Map<String, JSONArray> map3 = new HashMap<>();
-            map3.put("data", js);
-
-            System.out.println("map3\n"+JSONObject.fromObject(map3));
-
         } else if ("TOK_ALTERTABLE".equals(operationType)) {
             System.out.println("*** 修改表 ***");
-            List<FieldEntity> list = alterTableJavaBean(ast);
+            list = alterTableJavaBean(ast);
             for (FieldEntity entity : list) {
                 System.out.println(entity);
             }
@@ -57,6 +53,8 @@ public class HiveParseTestV2 {
             // 返回： 错误
             System.out.println("else");
         }
+
+        return list;
     }
 
     /**
