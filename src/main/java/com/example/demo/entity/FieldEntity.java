@@ -36,39 +36,37 @@ public class FieldEntity {
     public FieldEntity(){
         security_level = "C1";
     }
-    // 有参构造
+//    // 有参构造
+//    public FieldEntity(String fieldName, String type, int length, int nullable, int is_primary,
+//                       int is_partition_field, String security_level,
+//                       String default_value, String value_domain, String desc) {
+//        this.fieldName = fieldName;
+//        this.type = type;
+//        this.length = length;
+//        this.nullable = nullable;
+//        this.is_primary = is_primary;
+//        this.is_partition_field = is_partition_field;
+//        this.security_level = security_level;
+//        this.default_value = default_value;
+//        this.value_domain = value_domain;
+//        this.desc = desc;
+//    }
 
-
-    public FieldEntity(String fieldName, String type, int length, int nullable, int is_primary,
-                       int is_partition_field, String security_level,
-                       String default_value, String value_domain, String desc) {
-        this.fieldName = fieldName;
-        this.type = type;
-        this.length = length;
-        this.nullable = nullable;
-        this.is_primary = is_primary;
-        this.is_partition_field = is_partition_field;
-        this.security_level = security_level;
-        this.default_value = default_value;
-        this.value_domain = value_domain;
-        this.desc = desc;
-    }
-
-    @Override
-    public String toString() {
-        return "FieldEntity{" +
-                "fieldName='" + fieldName + '\'' +
-                ", type='" + type + '\'' +
-                ", length=" + length +
-                ", nullable=" + nullable +
-                ", is_primary=" + is_primary +
-                ", is_partition_field=" + is_partition_field +
-                ", security_level='" + security_level + '\'' +
-                ", default_value='" + default_value + '\'' +
-                ", value_domain='" + value_domain + '\'' +
-                ", desc='" + desc + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "FieldEntity{" +
+//                "fieldName='" + fieldName + '\'' +
+//                ", type='" + type + '\'' +
+//                ", length=" + length +
+//                ", nullable=" + nullable +
+//                ", is_primary=" + is_primary +
+//                ", is_partition_field=" + is_partition_field +
+//                ", security_level='" + security_level + '\'' +
+//                ", default_value='" + default_value + '\'' +
+//                ", value_domain='" + value_domain + '\'' +
+//                ", desc='" + desc + '\'' +
+//                '}';
+//    }
 
     public String getFieldName() {
         return fieldName;

@@ -14,7 +14,7 @@ import java.util.List;
 import static com.example.demo.common.HiveSql.*;
 
 @RestController
-public class UserController {
+public class SqlParseController {
     @GetMapping("getlandpage")
     public ResponseData getSql(@RequestParam String sql) throws ParseException {
         ResponseData responseData = new ResponseData();

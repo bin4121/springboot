@@ -17,9 +17,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class HiveParseTestV2 {
-
     public static List<FieldEntity> parseSql(String sql) throws ParseException {
-
         List<FieldEntity> list = new ArrayList<>();
 
         ParseDriver pd = new ParseDriver();
@@ -32,18 +30,16 @@ public class HiveParseTestV2 {
         int childCount = ast.getChild(0).getChild(0).getChildCount();
         String tableName = ast.getChild(0).getChild(0).getChild(childCount - 1).toString();
 
-        System.out.println("tableName = " + tableName);
-
         // 2.判断
         if ("TOK_CREATETABLE".equals(operationType)) {
-            System.out.println("*** 创建表 ***");
+//            System.out.println("*** 创建表 ***");
             list = createTableJavaBean(ast);
             for (FieldEntity fieldEntity : list) {
                 System.out.println(fieldEntity);
             }
 
         } else if ("TOK_ALTERTABLE".equals(operationType)) {
-            System.out.println("*** 修改表 ***");
+//            System.out.println("*** 修改表 ***");
             list = alterTableJavaBean(ast);
             for (FieldEntity entity : list) {
                 System.out.println(entity);
@@ -51,7 +47,7 @@ public class HiveParseTestV2 {
         } else {
             // TODO
             // 返回： 错误
-            System.out.println("else");
+//            System.out.println("else");
         }
 
         return list;
@@ -147,7 +143,7 @@ public class HiveParseTestV2 {
 
         // 新增字段
         if (alterTableAddColsIndex != -1) {
-            System.out.println("--- 新增字段 ---");
+//            System.out.println("--- 新增字段 ---");
             for (int i = 0; i < ast.getChild(0).getChild(alterTableAddColsIndex).getChildCount(); i++) {
                 if ("TOK_TABCOLLIST".equals(ast.getChild(0).getChild(alterTableAddColsIndex).getChild(i).toString())) {
                     tabColListIndex = i;
@@ -178,7 +174,7 @@ public class HiveParseTestV2 {
         // 修改注解
         if (alterTableRenameColIndex != -1) {
             FieldEntity filedEntity = new FieldEntity();
-            System.out.println("--- 修改字段注解 ---");
+//            System.out.println("--- 修改字段注解 ---");
             Tree child = ast.getChild(0).getChild(alterTableRenameColIndex);
 
             String oldCol = child.getChild(0).toString();

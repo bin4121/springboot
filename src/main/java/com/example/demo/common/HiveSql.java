@@ -111,16 +111,5 @@ public class HiveSql {
 
     public static final String alterCommentAndCol = "ALTER TABLE test.comment_table_test \n" +
             "CHANGE COLUMN newid id STRING COMMENT 'ididid'";
-
-
-    public static final String createtest = "CREATE TABLE IF NOT EXISTS hll.comment_table_test1(\n" +
-            "    id STRING COMMENT \"commentofid\", \n" +
-            "    time STRING COMMENT \"commentofname\"\n" +
-            ")\n" +
-            "COMMENT \"测试备注\"\n" +
-            "PARTITIONED BY (data_date string)";
-
-
-
 }
 
