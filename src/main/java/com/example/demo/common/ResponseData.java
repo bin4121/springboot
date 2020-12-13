@@ -1,8 +1,5 @@
 package com.example.demo.common;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class ResponseData<T> {
 
@@ -24,26 +21,13 @@ public class ResponseData<T> {
         this.message = message;
     }
 
-    public ResponseData(Integer code, String message, List<String> errors) {
-        this(code, message);
-        this.errors = errors;
-    }
 
-    private List<String> errors = new ArrayList<>();
 
     private Integer code = 200;
 
     private String message = "";
 
     private T data;
-
-    public List<String> getErrors() {
-        return errors;
-    }
-
-    public void setErrors(List<String> errors) {
-        this.errors = errors;
-    }
 
     public Integer getCode() {
         return code;

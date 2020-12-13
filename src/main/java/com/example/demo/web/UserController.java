@@ -4,6 +4,7 @@ import com.example.demo.common.ResponseData;
 import com.example.demo.entity.FieldEntity;
 import com.example.demo.service.HiveParseTestV2;
 import org.apache.hadoop.hive.ql.parse.ParseException;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,7 @@ import static com.example.demo.common.HiveSql.*;
 
 @RestController
 public class UserController {
-    @PostMapping("getlandpage/{sql}")
+    @GetMapping("getlandpage")
     public ResponseData getSql(@RequestParam String sql) throws ParseException {
         ResponseData responseData = new ResponseData();
 
