@@ -7,6 +7,7 @@ import static com.example.demo.common.HiveSql.*;
 
 public class UserController {
     public static void main(String[] args) throws ParseException {
-        HiveParseTestV2.parseSql(hql);
+//        HiveParseTestV2.parseSql(hql);
+        HiveParseTestV2.parseSql(alterAdd);
     }
 }
